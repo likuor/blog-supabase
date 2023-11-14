@@ -4,3 +4,8 @@ export type PostType = {
   description: string;
   date: Date;
 };
+
+export type AddPostType = {
+  title: string | undefined;
+  description: string | undefined;
+};
