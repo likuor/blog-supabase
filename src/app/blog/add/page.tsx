@@ -1,7 +1,7 @@
 "use client"
 import { AddPostType } from '@/app/types';
 import { useRouter } from 'next/navigation';
-import React, { useRef } from "react";
+import { useRef } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 
 const postBlog = async ({ title, description }: AddPostType) => {
@@ -30,6 +30,7 @@ const AddPost = () => {
     router.push('/')
     router.refresh()
   }
+
   return (
     <>
       <Toaster />

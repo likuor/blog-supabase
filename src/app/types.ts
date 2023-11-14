@@ -9,3 +9,11 @@ export type AddPostType = {
   title: string | undefined;
   description: string | undefined;
 };
+
+export type EditPostType = AddPostType & {
+  id: number;
+};
+
+export type GetBlogByIdType = {
+  id: number;
+};
