@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 
-const prisma = new PrismaClient();
+export const prisma = new PrismaClient();
 
 export const connectPrisma = async () => {
   try {
@@ -36,7 +36,7 @@ export const GET = async () => {
   }
 };
 
-export const POST = async (req: Request, res: NextResponse) => {
+export const POST = async (req: Request) => {
   try {
     await connectPrisma();
     const { title, description } = await req.json();
