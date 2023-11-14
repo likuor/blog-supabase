@@ -1,35 +1,14 @@
 "use client"
 import { AddPostType } from '@/app/types';
-import { useRouter } from 'next/navigation';
-import { useRef } from "react";
-import toast, { Toaster } from 'react-hot-toast';
-
-const postBlog = async ({ title, description }: AddPostType) => {
-  const res = await fetch('http://localhost:3000/api/blog', {
-    method: 'post',
-    headers: {
-      "Content-Type": "application/lson"
-    },
-    body: JSON.stringify({ title, description }),
-  })
-
-  return res.json
-}
+import { Toaster } from 'react-hot-toast';
+import AddingController from './controller';
 
 const AddPost = () => {
-  const router = useRouter()
-  const titleRef = useRef<HTMLInputElement | null>(null)
-  const descriptionRef = useRef<HTMLTextAreaElement | null>(null)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    toast.loading('Posting now ... ', { id: '1' })
-    await postBlog({ title: titleRef.current?.value, description: descriptionRef.current?.value })
-    toast.success('Success Posting !', { id: '1' })
-
-    router.push('/')
-    router.refresh()
-  }
+  const {
+    titleRef,
+    descriptionRef,
+    handleSubmit,
+  } = AddingController()
 
   return (
     <>
