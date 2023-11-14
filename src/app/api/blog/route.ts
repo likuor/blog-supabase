@@ -11,10 +11,11 @@ export const connectPrisma = async () => {
   }
 };
 
-export const GET = async (req: Request, res: NextResponse) => {
+export const GET = async () => {
   try {
     await connectPrisma();
     const posts = await prisma.post.findMany();
+
     return NextResponse.json(
       {
         message: 'Success to get all posts',
@@ -31,6 +32,34 @@ export const GET = async (req: Request, res: NextResponse) => {
       { status: 500 }
     );
   } finally {
-    await prisma.$disconnect;
+    prisma.$disconnect;
+  }
+};
+
+export const POST = async (req: Request, res: NextResponse) => {
+  try {
+    await connectPrisma();
+    const { title, description } = await req.json();
+    const post = await prisma.post.create({
+      data: { title, description },
+    });
+
+    return NextResponse.json(
+      {
+        message: 'Success to create a post',
+        data: post,
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      {
+        message: 'Error',
+        data: error,
+      },
+      { status: 500 }
+    );
+  } finally {
+    prisma.$disconnect;
   }
 };
