@@ -17,3 +17,7 @@ export type EditPostType = AddPostType & {
 export type GetBlogByIdType = {
   id: number;
 };
+
+export type DeleteBlogByIdType = {
+  id: number;
+};
