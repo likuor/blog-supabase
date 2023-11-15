@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { PostType } from './types';
 
 
-export const fetchAllPosts = async () => {
+const fetchAllPosts = async () => {
   const getAllPosts = await fetch(
     'http://localhost:3000/api/blog',
     {
