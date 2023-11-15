@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 
-export const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
 export const connectPrisma = async () => {
   try {
