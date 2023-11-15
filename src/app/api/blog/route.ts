@@ -11,7 +11,8 @@ export const connectPrisma = async () => {
   }
 };
 
-export const GET = async () => {
+export async function GET() {
+  // export const GET = async () => {
   try {
     await connectPrisma();
     const posts = await prisma.post.findMany();
@@ -34,9 +35,10 @@ export const GET = async () => {
   } finally {
     prisma.$disconnect;
   }
-};
+}
 
-export const POST = async (req: Request) => {
+export async function POST(req: Request) {
+  // export const POST = async (req: Request) => {
   try {
     await connectPrisma();
     const { title, description } = await req.json();
@@ -62,4 +64,4 @@ export const POST = async (req: Request) => {
   } finally {
     prisma.$disconnect;
   }
-};
+}
