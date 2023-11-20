@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { PostType } from './types';
-import fetchAllPosts from './controller';
+import HomeController from './controller';
 
 const Home = async () => {
+  const { fetchAllPosts } = HomeController()
   const posts = await fetchAllPosts()
 
   return (

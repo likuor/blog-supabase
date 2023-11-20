@@ -1,8 +1,12 @@
 import { supabaseAxiosClient } from './utils/supabaseAxiosClient';
 
-const fetchAllPosts = async () => {
-  const res = await supabaseAxiosClient.get('');
-  return res.data;
+const HomeController = () => {
+  const fetchAllPosts = async () => {
+    const res = await supabaseAxiosClient.get('');
+    return res.data;
+  };
+
+  return { fetchAllPosts };
 };
 
-export default fetchAllPosts;
+export default HomeController;

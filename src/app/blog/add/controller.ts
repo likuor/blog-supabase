@@ -1,4 +1,5 @@
 import { AddPostType } from '@/app/types';
+import { supabaseAxiosClient } from '@/app/utils/supabaseAxiosClient';
 import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
 import toast from 'react-hot-toast';
@@ -9,15 +10,11 @@ const AddingController = () => {
   const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
 
   const postBlog = async ({ title, description }: AddPostType) => {
-    const res = await fetch('http://localhost:3000/api/blog', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/lson',
-      },
-      body: JSON.stringify({ title, description }),
+    const res = await supabaseAxiosClient.post('', {
+      title,
+      description,
     });
-
-    return res.json;
+    return res.data;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

@@ -1,18 +1,7 @@
+import { connectPrisma, prisma } from '@/app/utils/connectPrisma';
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '../../../../prisma/generated/client';
-
-const prisma = new PrismaClient();
-
-const connectPrisma = async () => {
-  try {
-    await prisma.$connect();
-  } catch (error) {
-    return Error('Failed to connect DB');
-  }
-};
 
 export async function GET() {
-  // export const GET = async () => {
   try {
     await connectPrisma();
     const posts = await prisma.post.findMany();
@@ -38,7 +27,6 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  // export const POST = async (req: Request) => {
   try {
     await connectPrisma();
     const { title, description } = await req.json();
