@@ -1,18 +1,34 @@
 import Link from 'next/link'
 import { PostType } from './types';
-
+import { supabase } from './utils/supabaseClient';
 
 const fetchAllPosts = async () => {
-  const getAllPosts = await fetch(
-    'http://localhost:3000/api/blog',
-    {
-      cache: "no-store" //SSR
+  const res = await supabase
+    .from('Post')
+    .select('*')
+
+  if (res.status !== 200 || res.data === null) {
+    return {
+      status: 400,
+      data: [],
+      message: `Error ${res.error}`
     }
-  )
+  }
+  console.log('here');
 
-  const res = await getAllPosts.json()
+  return res
 
-  return res.data
+
+  // const getAllPosts = await fetch(
+  //   'http://localhost:3000/api/blog',
+  //   {
+  //     cache: "no-store" //SSR
+  //   }
+  // )
+
+  // const res = await getAllPosts.json()
+
+  // return res.data
 };
 
 
@@ -36,7 +52,7 @@ const Home = async () => {
         </Link>
       </div>
 
-      {posts.map((post: PostType) => (
+      {posts.data.map((post: PostType) => (
         <div key={post.id} className="w-full flex flex-col justify-center items-center">
           <div className="w-3/4 p-4 rounded-md mx-3 my-2 bg-slate-300 flex flex-col justify-center">
             <div className="flex items-center my-3">

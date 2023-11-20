@@ -1,5 +1,4 @@
 "use client"
-import { AddPostType } from '@/app/types';
 import { Toaster } from 'react-hot-toast';
 import AddingController from './controller';
 
