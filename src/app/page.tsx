@@ -14,8 +14,6 @@ const fetchAllPosts = async () => {
       message: `Error ${res.error}`
     }
   }
-  console.log('here');
-
   return res
 
 
