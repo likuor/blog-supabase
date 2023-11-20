@@ -1,15 +1,5 @@
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '../../../../../prisma/generated/client';
-
-const prisma = new PrismaClient();
-
-const connectPrisma = async () => {
-  try {
-    await prisma.$connect();
-  } catch (error) {
-    return Error('Failed to connect DB');
-  }
-};
+import { connectPrisma, prisma } from '@/app/utils/connectPrisma';
 
 export const GET = async (req: Request, res: NextResponse) => {
   try {

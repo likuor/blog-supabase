@@ -11,5 +11,6 @@ export const supabaseAxiosClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
     apikey: supabaseAnonKey,
+    Authorization: `Bearer ${supabaseAnonKey}`,
   },
 });

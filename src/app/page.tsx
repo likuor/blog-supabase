@@ -1,16 +1,9 @@
 import Link from 'next/link'
 import { PostType } from './types';
 import HomeController from './controller';
-import { supabaseAxiosClient } from './utils/supabaseAxiosClient';
-
-const fetchAllPosts = async () => {
-  const res = await supabaseAxiosClient.get('');
-  return res.data;
-};
-
 
 const Home = async () => {
-  // const { fetchAllPosts } = HomeController()
+  const { fetchAllPosts } = HomeController()
   const posts = await fetchAllPosts()
 
   return (
