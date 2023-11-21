@@ -2,8 +2,19 @@ import Link from 'next/link'
 import { PostType } from './types';
 import HomeController from './controller';
 
+const fetchAllPosts = async () => {
+  const res = await fetch('https://blog-supabase-five-dev.vercel.app/api/blog', {
+    cache: 'no-store'
+  })
+
+  const data = await res.json();
+  // console.log(data);
+  return data.data;
+};
+
+
 const Home = async () => {
-  const { fetchAllPosts } = HomeController()
+  // const { fetchAllPosts } = HomeController()
   const posts = await fetchAllPosts()
 
   return (
