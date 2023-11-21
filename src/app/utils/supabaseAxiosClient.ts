@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 // const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseUrl = 'https://blog-supabase-five-dev.vercel.app/api/blog';
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 // DEV env
 // const supabaseUrlDev = process.env.NEXT_PUBLIC_SUPABASE_URL_DEV;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
