@@ -14,15 +14,12 @@ const AddingController = () => {
     //   title,
     //   description,
     // });
-    const res = await fetch(
-      'https://blog-supabase-five-dev.vercel.app/api/blog',
-      {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    const res = await fetch('http://localhost:3000/api/blog', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     const data = await res.json();
     return data;
   };
