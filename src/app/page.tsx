@@ -3,7 +3,7 @@ import { PostType } from './types';
 import HomeController from './controller';
 
 const fetchAllPosts = async () => {
-  const res = await fetch('https://blog-supabase-five-dev.vercel.app/api/blog', {
+  const res = await fetch('https://blog-supabase-five.vercel.app//api/blog', {
     cache: 'no-store'
   })
 
