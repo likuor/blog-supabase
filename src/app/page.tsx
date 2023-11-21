@@ -2,19 +2,8 @@ import Link from 'next/link'
 import { PostType } from './types';
 import HomeController from './controller';
 
-const fetchAllPosts = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL!, {
-    cache: 'no-store'
-  })
-
-  const data = await res.json();
-  // console.log(data);
-  return data.data;
-};
-
-
 const Home = async () => {
-  // const { fetchAllPosts } = HomeController()
+  const { fetchAllPosts } = HomeController()
   const posts = await fetchAllPosts()
 
   return (
