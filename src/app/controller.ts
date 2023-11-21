@@ -7,6 +7,9 @@ const HomeController = () => {
       {
         // const res = await fetch('http://localhost:3000/api/blog', {
         cache: 'no-store',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
     );
     const data = await res.json();
