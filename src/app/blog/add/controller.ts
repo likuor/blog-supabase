@@ -10,11 +10,21 @@ const AddingController = () => {
   const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
 
   const postBlog = async ({ title, description }: AddPostType) => {
-    const res = await supabaseAxiosClient.post('', {
-      title,
-      description,
-    });
-    return res.data;
+    // const res = await supabaseAxiosClient.post('', {
+    //   title,
+    //   description,
+    // });
+    const res = await fetch(
+      'https://blog-supabase-five-dev.vercel.app/api/blog',
+      {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    const data = await res.json();
+    return data;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
