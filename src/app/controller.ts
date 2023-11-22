@@ -1,5 +1,3 @@
-import { supabaseAxiosClient } from './utils/supabaseAxiosClient';
-
 const HomeController = () => {
   const fetchAllPosts = async () => {
     const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL!, {
@@ -8,8 +6,6 @@ const HomeController = () => {
 
     const data = await res.json();
     return data.data;
-    // const res = await supabaseAxiosClient.get('');
-    // return res.data;
   };
 
   return { fetchAllPosts };

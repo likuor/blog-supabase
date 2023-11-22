@@ -1,5 +1,4 @@
 import { AddPostType } from '@/app/types';
-import { supabaseAxiosClient } from '@/app/utils/supabaseAxiosClient';
 import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
 import toast from 'react-hot-toast';
