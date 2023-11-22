@@ -13,7 +13,6 @@ const Home = async () => {
           Supabase Blog 📝
         </h1>
       </div>
-      {/* Link */}
       <div className="flex my-5">
         <Link
           href={"/blog/add"}
