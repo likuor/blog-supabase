@@ -10,11 +10,7 @@ const AddingController = () => {
   const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
 
   const postBlog = async ({ title, description }: AddPostType) => {
-    // const res = await supabaseAxiosClient.post('', {
-    //   title,
-    //   description,
-    // });
-    const res = await fetch('http://localhost:3000/api/blog', {
+    const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL!, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
