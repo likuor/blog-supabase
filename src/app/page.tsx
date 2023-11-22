@@ -10,7 +10,7 @@ const Home = async () => {
     <main className="w-full h-full">
       <div className="md:w-2/4 sm:w-3/4 m-auto p-4 my-5 rounded-lg bg-blue-900 drop-shadow-xl">
         <h1 className="text-slate-200 text-center text-2xl font-extrabold">
-          Full Stack Blog 📝
+          Supabase Blog 📝
         </h1>
       </div>
       {/* Link */}
@@ -19,7 +19,7 @@ const Home = async () => {
           href={"/blog/add"}
           className=" md:w-1/6 sm:w-2/4 text-center rounded-md p-2 m-auto bg-slate-300 font-semibold"
         >
-          ブログ新規作成
+          Create a blog
         </Link>
       </div>
 
@@ -34,7 +34,7 @@ const Home = async () => {
                 href={`/blog/edit/${post.id}`}
                 className="px-4 py-1 text-center text-xl bg-slate-900 rounded-md font-semibold text-slate-200"
               >
-                編集
+                Edit
               </Link>
             </div>
 
