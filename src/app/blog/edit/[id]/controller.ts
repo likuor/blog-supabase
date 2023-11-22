@@ -9,7 +9,7 @@ const EditingController = (id: number) => {
   const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
 
   const editBlog = async ({ title, description, id }: EditPostType) => {
-    const res = await fetch(`http://localhost:3000/api/blog/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL!}/${id}`, {
       method: 'put',
       headers: {
         'Content-Type': 'application/lson',
@@ -21,13 +21,13 @@ const EditingController = (id: number) => {
   };
 
   const getBlogById = async ({ id }: GetBlogByIdType) => {
-    const getBlog = await fetch(`http://localhost:3000/api/blog/${id}`);
+    const getBlog = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL!}/${id}`);
     const res = await getBlog.json();
     return res.data;
   };
 
   const deleteBlog = async ({ id }: DeleteBlogByIdType) => {
-    const res = await fetch(`http://localhost:3000/api/blog/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL!}/${id}`, {
       method: 'delete',
       headers: {
         'Content-Type': 'application/lson',
