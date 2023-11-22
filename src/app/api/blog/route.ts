@@ -2,8 +2,6 @@ import { connectPrisma, prisma } from '@/app/utils/connectPrisma';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  console.log('ssssssssss');
-
   try {
     await connectPrisma();
     const posts = await prisma.post.findMany();
