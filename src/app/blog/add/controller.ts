@@ -21,7 +21,6 @@ const AddingController = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
     toast.loading('Posting now ... ', { id: '1' });
     await postBlog({
       title: titleRef.current?.value,
