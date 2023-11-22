@@ -8,7 +8,6 @@ const AddingController = () => {
   const router = useRouter();
   const titleRef = useRef<HTMLInputElement | null>(null);
   const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
-  console.log('posting');
 
   const postBlog = async ({ title, description }: AddPostType) => {
     const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL!, {
