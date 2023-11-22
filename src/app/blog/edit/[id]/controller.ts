@@ -39,14 +39,6 @@ const EditingController = (id: number) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // toast.loading('Editing now ... ', { id: '1' });
-    // await editBlog({
-    //   title: titleRef.current?.value,
-    //   description: descriptionRef.current?.value,
-    //   id,
-    // });
-    // toast.success('Success Edit !', { id: '1' });
-
     await toast.promise(
       editBlog({
         title: titleRef.current?.value,
@@ -56,7 +48,7 @@ const EditingController = (id: number) => {
       {
         loading: 'Editing now ...',
         success: 'Success Edit !',
-        error: 'Promise rejected 🤯',
+        error: 'Edit rejected',
       }
     );
 
@@ -66,9 +58,11 @@ const EditingController = (id: number) => {
 
   const handleDelete = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.loading('Deleting now ... ');
-    await deleteBlog({ id });
-    toast.success('Success Delete !', { id: '1' });
+    await toast.promise(deleteBlog({ id }), {
+      loading: 'Deleting now ...',
+      success: 'Success Delete !',
+      error: 'Delete rejected',
+    });
 
     router.push('/');
     router.refresh();

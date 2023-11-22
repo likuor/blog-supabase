@@ -22,12 +22,17 @@ const AddingController = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.loading('Posting now ... ', { id: '1' });
-    await postBlog({
-      title: titleRef.current?.value,
-      description: descriptionRef.current?.value,
-    });
-    toast.success('Success Posting !', { id: '1' });
+    await toast.promise(
+      postBlog({
+        title: titleRef.current?.value,
+        description: descriptionRef.current?.value,
+      }),
+      {
+        loading: 'Posting now ...',
+        success: 'Success Posting !',
+        error: 'Post rejected',
+      }
+    );
 
     router.push('/');
     router.refresh();
